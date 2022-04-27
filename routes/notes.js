@@ -1,19 +1,25 @@
 
 const notes = require('express');
 
-notes.get('/', (req, res) => {
-    readFromFile('./db/db.json').then((data) => res.json(SON.parse(data)));
+notes.get('/api/notes', (req, res) => {
+    fs.readFile('./db/db.json', 'utf-8', (err, data) => {
+        if(err) {
+            console.log(err);
+        } else {
+            res.json(JSON.parse(data));
+        }
+    });
 });
 
-    ps.post('/', (req, res) => {
+notes.post('/', (req, res) => {
     console.log(req.body);
     
-    const {} = req.body;
+    const { title, text } = req.body;
 
     if (req.body) {
         const newNote = {
-            title: noteTitle.value,
-            text: noteText.value,
+            title,
+            text,
         };
 
         readAndAppend(newNote, './db.db.json');
