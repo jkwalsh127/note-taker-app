@@ -2,22 +2,33 @@ const express = require('express');
 const path = require('path');
 // const api = require('./public/scripts/index.js');
 
-const PORT = 3001;
-
+// const dbData = require('./db/db.json');
 const app = express();
+const PORT = 3005;
 
-app.use(express.json);
-app.use(express.urlencoded({ extended: true }));
+
+// const sortHelper = (type) =>
+//     dbData.sort(sortData(`${type}`, 'text'));
+
+// app.use(express.json);
+// app.use(express.urlencoded({ extended: true }));
 // app.use('/api', api);
 
 app.use(express.static('public'));
 
-app.get('/', (req, res) =>
-    res.sendFile(path.join(__dirname, '/public/index.html'))
-);
+
+app.get('/', (req, res) => res.send('Navigate to ...'));
+// app.get('/', (req, res) =>
+//     res.sendFile(path.join(__dirname, '/public/index.html'))
+// );
+// app.get('/api/db', (req, res) => res.json(dbData));
 
 app.get('/notes', (req, res) =>
     res.sendFile(path.join(__dirname, '/public/notes.html'))
+);
+
+app.listen(PORT, () => 
+    console.log(`App listening at http://localhost:${PORT}`)
 );
 
 // app.get('/api/notes', (req, res) => 
@@ -48,6 +59,3 @@ app.get('/notes', (req, res) =>
 //     }
 // });
 
-app.listen(PORT, () => 
-    console.log(`App listening at http://localhost:${PORT}`)
-);
