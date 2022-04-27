@@ -1,14 +1,13 @@
+const { readFromFile, readAndAppend } = require('../helpers/fsUtils');
+const uuid = require('../helpers/uuid');
+const notes = require('express').Router();
 
-const notes = require('express');
+notes.get('/notes', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/notes.html'));
+});
 
-notes.get('/api/notes', (req, res) => {
-    fs.readFile('./db/db.json', 'utf-8', (err, data) => {
-        if(err) {
-            console.log(err);
-        } else {
-            res.json(JSON.parse(data));
-        }
-    });
+notes.get('/', (req, res) => {
+    readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
 notes.post('/', (req, res) => {
@@ -20,9 +19,10 @@ notes.post('/', (req, res) => {
         const newNote = {
             title,
             text,
+            note_id: uuid(),
         };
 
-        readAndAppend(newNote, './db.db.json');
+        readAndAppend(newNote, './db/db.json');
         res.json(`Note added successfully!`);
     } else {    
         res.error('Error in adding note');
