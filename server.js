@@ -10,8 +10,8 @@ const PORT = 3005;
 // const sortHelper = (type) =>
 //     dbData.sort(sortData(`${type}`, 'text'));
 
-// app.use(express.json);
 // app.use(express.urlencoded({ extended: true }));
+// app.use(express.json);
 // app.use('/api', api);
 
 app.use(express.static('public'));
@@ -26,6 +26,10 @@ app.get('/api/db', (req, res) => res.json(dbData));
 app.get('/notes', (req, res) =>
     res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
+
+app.post('/notes', (req, res) => {
+    res.json(`${req.method} request received`);
+});
 
 app.listen(PORT, () => 
     console.log(`App listening at http://localhost:${PORT}`)
