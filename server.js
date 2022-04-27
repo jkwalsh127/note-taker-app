@@ -4,7 +4,7 @@ const path = require('path');
 
 const dbData = require('./db/db.json');
 const app = express();
-const PORT = 3005;
+const PORT = process.env.PORT || 3005;
 
 
 // const sortHelper = (type) =>
