@@ -10,9 +10,9 @@ const app = express();
 // const sortHelper = (type) =>
 //     dbData.sort(sortData(`${type}`, 'text'));
 
-// app.use(express.urlencoded({ extended: true }));
 // app.use(express.json);
-// app.use('/api', api);
+// app.use(express.urlencoded({ extended: true }));
+app.use('/api', api);
 
 app.use(express.static('public'));
 
