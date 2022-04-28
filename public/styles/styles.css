@@ -103,31 +103,3 @@ body {
   font-size: 20px;
   align-self: center;
 }
-
-#new-note-btn {
-  width: 100px;
-  background: none;
-  border: 1px solid white;
-  background-color: rgba(0, 0, 0, 0);
-}
-
-#save-note-btn {
-  width: 100px;
-  background: none;
-  border: 1px solid white;
-  background-color: rgba(0, 0, 0, 0);
-  display: flex;
-  justify-content: center;
-}
-
-#save-btn-text {
-  color: white;
-  font-weight: 500;
-  margin: 0;
-}
-
-.icons {
-  display: flex;
-  min-width:250px;
-  justify-content: space-between;
-}

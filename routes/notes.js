@@ -1,6 +1,6 @@
 const notes = require('express').Router();
 const uuid = require('../helpers/uuid');
-const { readFromFile, readAndAppend } = require('../helpers/fsUtils');
+const { readFromFile, readAndAppend, writeToFile } = require('../helpers/fsUtils');
 
 notes.get('/', (req, res) => {
     // readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
@@ -13,24 +13,24 @@ notes.get('/', (req, res) => {
     })
 });
 
-notes.get('/:note_id', (req, res) => {
-    const noteId = req.params.note_id;
+notes.get('/id', (req, res) => {
+    const noteId = req.params.id;
     readFromFile('./db/db.json')
       .then((data) => JSON.parse(data))
       .then((json) => {
-        const result = json.filter((note) => note.note_id === noteId);
+        const result = json.filter((note) => note.id === noteId);
         return result.length > 0
           ? res.json(result)
           : res.json('No note with that ID');
       });
   });
 
-notes.delete('/:note_id', (req, res) => {
-    const noteId = req.params.note_id;
+notes.delete('/:id', (req, res) => {
+    const noteId = req.params.id;
     readFromFile('./db/db.json')
       .then((data) => JSON.parse(data))
       .then((json) => {
-        const result = json.filter((note) => note.note_id !== noteId);
+        const result = json.filter((note) => note.id !== noteId);
   
         writeToFile('./db/db.json', result);
   
@@ -46,7 +46,7 @@ notes.post('/', (req, res) => {
         const newNote = {
           title,
           text,
-          tip_id: uuid(),
+          id: uuid(),
         };
     
         readAndAppend(newNote, './db/db.json');
@@ -55,7 +55,6 @@ notes.post('/', (req, res) => {
         res.error('Error in adding note');
       }
     });
-});
 
 module.exports = notes;
 
@@ -68,7 +67,7 @@ module.exports = notes;
 //       const newNote = {
 //         title,
 //         text,
-//         note_id: uuid(),
+//         id: uuid(),
 //       };
   
 //       fs.readFile('./db/db.json', 'utf8', (err, data) => {
