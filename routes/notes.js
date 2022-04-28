@@ -49,3 +49,35 @@ notes.post('/', (req, res) => {
 });
 
 module.exports = notes;
+
+// notes.post('/', (req, res) => {
+//     console.info(`${req.method} request received`);
+  
+//     const { title, text } = req.body;
+  
+//     if (title && text) {
+//       const newNote = {
+//         title,
+//         text,
+//         note_id: uuid(),
+//       };
+  
+//       fs.readFile('./db/db.json', 'utf8', (err, data) => {
+//         if (err) {
+//           console.error(err);
+//         } else {
+//           const parsedNote = JSON.parse(data);
+  
+//           parsedNote.push(newNote);
+//           reviews = parsedNote;
+
+//           fs.writeFile(
+//             './db/db.json',
+//             JSON.stringify(parsedNote, null, 4),
+//             (writeErr) =>
+//               writeErr
+//                 ? console.error(writeErr)
+//                 : console.info('Successfully updated notes')
+//           );
+//         }
+//       });
