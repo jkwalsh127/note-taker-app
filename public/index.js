@@ -8,6 +8,12 @@ const  newNoteBtn = document.querySelector('.new-note');
 const  noteList = document.querySelectorAll('.list-container .list-group');
 }
 
+newNoteBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  console.log('ive been clicked!')
+  window.location.href = '/notes';
+});
+
 // Show an element
 const show = (elem) => {
   elem.style.display = 'inline';
