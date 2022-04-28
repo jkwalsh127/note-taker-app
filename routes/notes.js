@@ -3,14 +3,28 @@ const uuid = require('../helpers/uuid');
 const { readFromFile, readAndAppend } = require('../helpers/fsUtils');
 
 notes.get('/', (req, res) => {
-    readFromFile('./db/db.json', "utf-8").then((data) => {
-        res.json(JSON.parse(data));
-    }).catch((error) => {
-        console.error(`Unable to satisfy ${req.method} request`);
-        console.error(error);
-        res.json("unable to satisfy request")
-    })
+    readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
+    // readFromFile('./db/db.json', "utf-8").then((data) => {
+    //     res.json(JSON.parse(data));
+    // }).catch((error) => {
+    //     console.error(`Unable to satisfy ${req.method} request`);
+    //     console.error(error);
+    //     res.json("unable to satisfy request")
+    // })
 });
+
+notes.delete('/:note_id', (req, res) => {
+    const noteId = req.params.note_id;
+    readFromFile('./db/db.json')
+      .then((data) => JSON.parse(data))
+      .then((json) => {
+        const result = json.filter((note) => note.note_id !== noteId);
+  
+        writeToFile('./db/db.json', result);
+  
+        // res.json('');
+      });
+  });
 
 notes.post('/', (req, res) => {
 
@@ -19,7 +33,6 @@ notes.post('/', (req, res) => {
         const newNote = {
             title,
             text,
-            // title: "helooo",
             note_id: uuid(),
         };
 
