@@ -28,6 +28,8 @@ notes.delete('/:note_id', (req, res) => {
 
 notes.post('/', (req, res) => {
 
+    console.log(typeof req.body);
+
     const { title, text } = req.body;
 
         const newNote = {
