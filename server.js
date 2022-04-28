@@ -18,16 +18,16 @@ app.use(express.static('public'));
 
 // app.get('/', (req, res) => res.send('Navigate to ...'));
 app.get('/', (req, res) =>
-    res.sendFile(path.join(__dirname, '/public/pages/index'))
+    res.sendFile(path.join(__dirname, '/public/pages/index.html'))
 );
 // app.get('/api/db', (req, res) => res.json(dbData));
 
 app.get('/notes', (req, res) =>
-    res.sendFile(path.join(__dirname, '/public/pages/notes'))
+    res.sendFile(path.join(__dirname, '/public/pages/notes.html'))
 );
 
 app.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, 'public/pages/404'))
+  res.sendFile(path.join(__dirname, 'public/pages/404.html'))
 );
 
 app.listen(PORT, () => 
