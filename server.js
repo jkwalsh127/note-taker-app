@@ -1,4 +1,4 @@
-const express = require('express');
+wconst express = require('express');
 const path = require('path');
 const api = require('./routes/index');
 
@@ -21,7 +21,7 @@ app.get('/notes', (req, res) =>
 );
 
 app.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, 'public/pages/404.html'))
+  res.sendFile(path.join(__dirname, 'public/pages/index.html'))
 );
 
 app.listen(PORT, () => 
