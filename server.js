@@ -1,10 +1,10 @@
 const express = require('express');
 const path = require('path');
-// const api = require('./public/scripts/index.js');
+const api = require('./public/routes/index.js');
 
-const dbData = require('./db/db.json');
-const app = express();
 const PORT = process.env.PORT || 3005;
+
+const app = express();
 
 
 // const sortHelper = (type) =>
@@ -17,19 +17,19 @@ const PORT = process.env.PORT || 3005;
 app.use(express.static('public'));
 
 
-app.get('/', (req, res) => res.send('Navigate to ...'));
-// app.get('/', (req, res) =>
-//     res.sendFile(path.join(__dirname, '/public/index.html'))
-// );
-app.get('/api/db', (req, res) => res.json(dbData));
+// app.get('/', (req, res) => res.send('Navigate to ...'));
+app.get('/', (req, res) =>
+    res.sendFile(path.join(__dirname, '/public/index.html'))
+);
+// app.get('/api/db', (req, res) => res.json(dbData));
 
 app.get('/notes', (req, res) =>
     res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
-app.post('/notes', (req, res) => {
-    res.json(`${req.method} request received`);
-});
+app.get('*', (req, res) => 
+    res.sendFile(path.join(__dirname, '/public/index.html'))
+);
 
 app.listen(PORT, () => 
     console.log(`App listening at http://localhost:${PORT}`)
