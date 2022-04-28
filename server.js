@@ -16,15 +16,14 @@ app.use('/api', api);
 
 app.use(express.static('public'));
 
-
 // app.get('/', (req, res) => res.send('Navigate to ...'));
 app.get('/', (req, res) =>
-    res.sendFile(path.join(__dirname, '/public/index.html'))
+    res.sendFile(path.join(__dirname, '/public/pages/index.html'))
 );
 // app.get('/api/db', (req, res) => res.json(dbData));
 
 app.get('/notes', (req, res) =>
-    res.sendFile(path.join(__dirname, '/public/notes.html'))
+    res.sendFile(path.join(__dirname, '/public/pages/notes.html'))
 );
 
 app.get('*', (req, res) =>
