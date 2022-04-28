@@ -1,12 +1,16 @@
+let noteTitle;
+let noteText;
+let saveNoteBtn;
+let newNoteBtn;
+let noteList;
 
-
-// if (window.location.pathname === '/notes') {
-  const  noteTitle = document.querySelector('.note-title');
-  const  noteText = document.querySelector('.note-textarea');
-  const  saveNoteBtn = document.querySelector('.save-note');
-  const  newNoteBtn = document.querySelector('.new-note');
-  const  noteList = document.querySelectorAll('.list-container .list-group');
-// }
+if (window.location.pathname === '/notes') {
+  noteTitle = document.querySelector('.note-title');
+  noteText = document.querySelector('.note-textarea');
+  saveNoteBtn = document.querySelector('.save-note');
+  newNoteBtn = document.querySelector('.new-note');
+  noteList = document.querySelectorAll('.list-container .list-group');
+}
 
 // Show an element
 const show = (elem) => {
@@ -21,19 +25,13 @@ const hide = (elem) => {
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {};
 
-const getNotes = (data) =>
+const getNotes = () =>
   fetch('/api/notes', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(data),
-  })
-    .then((response) => response.json())
-    .then((data) => data)
-    .catch((error) => {
-      console.error('Error:', error);
-    });  
+  });
 
 const saveNote = (note) =>
   fetch('/api/notes', {
@@ -42,15 +40,7 @@ const saveNote = (note) =>
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(note),
-  })
-  .then((response) => response.json())
-  .then((data) => {
-    alert(data);
-  })
-  .catch((error) => {
-    console.error('Error:', error);
   });
-    
 
 const deleteNote = (id) =>
   fetch(`/api/notes/${id}`, {
