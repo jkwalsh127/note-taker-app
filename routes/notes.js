@@ -14,7 +14,7 @@ notes.get('/', (req, res) => {
 });
 
 // route to the desired note by its unique id
-notes.get('/id', (req, res) => {
+notes.get('/:id', (req, res) => {
     const noteId = req.params.id;
     readFromFile('./db/db.json')
       .then((data) => JSON.parse(data))
