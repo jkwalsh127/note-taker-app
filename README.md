@@ -6,7 +6,7 @@ Click <a href="https://young-inlet-99889.herokuapp.com/notes" target="_blank">**
 
 |   Languages   | runtime  |  Node Modules |
 | ----------- | ----------- | ----------- | 
-| ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) | ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) | express |
+| ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) | ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) | ExpressJS |
 | ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) |  |  |
 | ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) |
 
@@ -27,8 +27,7 @@ You can use this application through its heroku url (listed above), or by first 
 ## Usage
 Navigate to the notepad by selecting "get started" from the home page. Write a new note, beginning with the title and then filling our the main body. Once there is content in the main body, a save button will appear. Click this button when you are ready to save and the note will be saved and displayed on the list to the left. Select any note on the list to load it in the main form. Select the delete button to delete any note on the list. Hit the "+" button to clear the form in order to add a new note. 
 
-
-https://user-images.githubusercontent.com/101354032/165249133-217bb3bf-c586-4879-9f0d-4e7d09c19b0d.mp4
+![app-demo](https://user-images.githubusercontent.com/101354032/165885905-1c194779-0f86-4bec-9fde-60171184faf6.gif)
 
 ## Credits
 This was a solo project meant to build off of starter code provided by the staff at the UC Berkeley full-stack coding bootcamp.
