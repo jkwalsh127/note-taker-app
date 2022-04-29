@@ -2,11 +2,21 @@
     {
         "title": "Go to the bank",
         "text": "get some money",
-        "id": "460f"
+        "id": "ca99"
     },
     {
-        "title": "check it out",
-        "text": "we good",
-        "id": "e8ea"
+        "title": "Go to the store",
+        "text": "spend some money",
+        "id": "5d06"
+    },
+    {
+        "title": "Go to work",
+        "text": "earn some money",
+        "id": "d548"
+    },
+    {
+        "title": "Go walk",
+        "text": "thats it",
+        "id": "58cb"
     }
 ]

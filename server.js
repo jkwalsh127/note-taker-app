@@ -1,7 +1,7 @@
 // import server dependencies
 const express = require('express');
 const path = require('path');
-const api = require('./routes/notes.js');
+const api = require('./routes/index.js');
 
 // set up port locally and for heroku
 const PORT = process.env.PORT || 3005;
