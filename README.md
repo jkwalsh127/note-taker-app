@@ -1,8 +1,8 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # note-taker-app
 
-Click <a href="https://young-inlet-99889.herokuapp.com/notes" target="_blank">**here**<a> to check out the app (hosted by Heroku)
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# Click <a href="https://young-inlet-99889.herokuapp.com/notes" target="_blank">**here**<a> to check out the app (hosted by Heroku)
 
 |   Languages   | runtime  |  Node Modules |
 | ----------- | ----------- | ----------- | 
