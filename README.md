@@ -2,7 +2,7 @@
 
 # Notes Application
 
-## Click <a href="https://young-inlet-99889.herokuapp.com/notes" target="_blank">**here**<a> to check out the app (hosted by Heroku)
+### Click <a href="https://young-inlet-99889.herokuapp.com/notes" target="_blank">**here**<a> to check out the app (hosted by Heroku)
 
 |   Languages   | runtime  |  Node Modules |
 | ----------- | ----------- | ----------- | 
